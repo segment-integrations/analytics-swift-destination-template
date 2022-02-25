@@ -122,6 +122,13 @@ class ExampleDestination: DestinationPlugin {
     }
 }
 
+// Example of versioning for your plugin
+extension ExampleDestination: VersionedPlugin {
+    public static func version() -> String {
+        return __destination_version
+    }
+}
+
 // Example of what settings may look like.
 private struct ExampleSettings: Codable {
     let apiKey: String

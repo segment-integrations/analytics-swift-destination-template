@@ -6,7 +6,6 @@ import PackageDescription
 let package = Package(
     name: "SegmentDestination",
     platforms: [
-        .macOS("10.15"),
         .iOS("13.0"),
         .tvOS("11.0"),
         .watchOS("7.1")
@@ -23,7 +22,7 @@ let package = Package(
         .package(
             name: "Segment",
             url: "https://github.com/segmentio/analytics-swift.git",
-            from: "1.1.1"
+            from: "1.1.2"
         )
     ],
     targets: [
@@ -32,9 +31,8 @@ let package = Package(
         .target(
             name: "SegmentDestination",
             dependencies: ["Segment"]),
-        .testTarget(
-            name: "SegmentDestination-Tests",
-            dependencies: ["SegmentDestination"]),
+        
+        // TESTS ARE HANDLED VIA THE EXAMPLE APP.
     ]
 )
 
