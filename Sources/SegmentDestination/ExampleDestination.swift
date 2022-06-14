@@ -41,16 +41,18 @@ import Segment
  An implementation of the Example Analytics device mode destination as a plugin.
  */
 
-class ExampleDestination: DestinationPlugin {
-    let timeline = Timeline()
-    let type = PluginType.destination
+public class ExampleDestination: DestinationPlugin {
+    public let timeline = Timeline()
+    publiclet type = PluginType.destination
     // TODO: Fill this out with your settings key that matches your destination in the Segment App
-    let key = "Example"
-    var analytics: Analytics? = nil
+    public let key = "Example"
+    public var analytics: Analytics? = nil
     
     private var exampleSettings: ExampleSettings?
         
-    func update(settings: Settings, type: UpdateType) {
+    public init() { }
+
+    public func update(settings: Settings, type: UpdateType) {
         // Skip if you have a singleton and don't want to keep updating via settings.
         guard type == .initial else { return }
         
@@ -62,7 +64,7 @@ class ExampleDestination: DestinationPlugin {
         // TODO: initialize partner SDK here
     }
     
-    func identify(event: IdentifyEvent) -> IdentifyEvent? {
+    public func identify(event: IdentifyEvent) -> IdentifyEvent? {
         
         if let _ = event.traits?.dictionaryValue {
             // TODO: Do something with traits if they exist
@@ -73,7 +75,7 @@ class ExampleDestination: DestinationPlugin {
         return event
     }
     
-    func track(event: TrackEvent) -> TrackEvent? {
+    public func track(event: TrackEvent) -> TrackEvent? {
         
         var returnEvent = event
         
@@ -88,7 +90,7 @@ class ExampleDestination: DestinationPlugin {
         return returnEvent
     }
     
-    func screen(event: ScreenEvent) -> ScreenEvent? {
+    public func screen(event: ScreenEvent) -> ScreenEvent? {
         
         if let _ = event.properties?.dictionaryValue {
             // TODO: Do something with properties if they exist
@@ -99,7 +101,7 @@ class ExampleDestination: DestinationPlugin {
         return event
     }
     
-    func group(event: GroupEvent) -> GroupEvent? {
+    public func group(event: GroupEvent) -> GroupEvent? {
         
         if let _ = event.traits?.dictionaryValue {
             // TODO: Do something with traits if they exist
@@ -110,14 +112,14 @@ class ExampleDestination: DestinationPlugin {
         return event
     }
     
-    func alias(event: AliasEvent) -> AliasEvent? {
+    public func alias(event: AliasEvent) -> AliasEvent? {
         
         // TODO: Do something with previousId & userId in partner SDK
         
         return event
     }
     
-    func reset() {
+    public func reset() {
         // TODO: Do something with resetting partner SDK
     }
 }
