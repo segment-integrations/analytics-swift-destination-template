@@ -43,7 +43,7 @@ import Segment
 
 public class ExampleDestination: DestinationPlugin {
     public let timeline = Timeline()
-    publiclet type = PluginType.destination
+    public let type = PluginType.destination
     // TODO: Fill this out with your settings key that matches your destination in the Segment App
     public let key = "Example"
     public var analytics: Analytics? = nil
