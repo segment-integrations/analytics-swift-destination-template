@@ -40,6 +40,11 @@ import Segment
 /**
  An implementation of the Example Analytics device mode destination as a plugin.
  */
+ 
+@objc(SEGExampleDestination)
+public class ObjCSegmentMixpanel: NSObject, ObjCDestination, ObjCDestinationShim {
+    public func instance() -> DestinationPlugin { return ExampleDestination() }
+}
 
 public class ExampleDestination: DestinationPlugin {
     public let timeline = Timeline()
